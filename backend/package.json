@@ -1,0 +1,27 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sachi86/ChristelleBono_7_10012022.git"
+  },
+  "author": "Christelle BONO",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sachi86/ChristelleBono_7_10012022/issues"
+  },
+  "homepage": "https://github.com/sachi86/ChristelleBono_7_10012022#readme",
+  "dependencies": {
+    "body-parser": "^1.19.1",
+    "cors": "^2.8.5",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.2",
+    "mysql2": "^2.3.3",
+    "sequelize": "^6.13.0"
+  }
+}
