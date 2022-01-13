@@ -1,0 +1,38 @@
+* {
+    margin:0;
+    padding: 0;
+    text-decoration: none;
+    list-style-type: none;
+    outline: none;
+    border: none;
+}
+
+*, 
+*::before, 
+*::after { 
+    box-sizing: inherit; 
+} 
+
+html { 
+    box-sizing: border-box; 
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: 'Roboto', sans-serif;
+    width: 100%;
+}
+
+a {
+    &:visited {
+        color:inherit;
+    }
+    &:active {
+        color: inherit;
+    }
+    &:focus {
+        color: inherit;
+    }
+}
