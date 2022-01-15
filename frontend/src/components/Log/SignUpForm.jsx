@@ -14,7 +14,7 @@ function SignUpForm() {
 
     const onSubmit = data => {
         axios.post(`${cleAPI}/api/auth/signup`,
-            { lastName: data.lastName, firstName: data.firstName, email: data.email, password: data.password })
+            { lastName: data.lastname, firstName: data.firstname, email: data.email, password: data.password })
             .then(res => {
                 console.log(res.data);
                 const storageToken = {

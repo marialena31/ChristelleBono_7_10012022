@@ -16,7 +16,7 @@ router.post('/signup', userCtrl.signup);
 router.post('/login', userCtrl.login); 
 
 //Defined route get one account with the method get
-router.get('/accounts/:id_user', auth, userCtrl.getOneAccount);
+router.get('/accounts/:id_user', userCtrl.getOneAccount);
 
 //Export the methode router
 module.exports = router;
