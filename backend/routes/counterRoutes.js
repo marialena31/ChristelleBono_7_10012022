@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 
-const counterCtrl = require('../controllers/counterCtrl');
+const counterCtrl = require('../controllers/countCtrl');
 const auth = require('../middleware/auth-middleware');
 
 router.post('/likes', auth, counterCtrl.counterLike);

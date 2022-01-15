@@ -27,7 +27,7 @@ const dbModerate = require('./models/Moderator');
 const userRoutes = require('./routes/userRoutes');
 const postRoutes = require ('./routes/postRoutes');
 const commentRoutes = require ('./routes/commentRoutes');
-const countRoutes = require('./routes/countRoutes');
+const countRoutes = require('./routes/counterRoutes');
 
 //App use the method express
 const app = express();
