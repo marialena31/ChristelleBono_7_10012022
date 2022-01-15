@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import SignUpForm from './SignUpForm';
-import SignInForm from './SignInForm';
+import SignUpForm from './SignUp';
+import SignInForm from './SignIn';
 
 const Log = ( props ) => {
     const [signUpModal, setSignUpModal] = useState(props.signUp);

@@ -4,30 +4,52 @@ import { useForm } from 'react-hook-form';
 const dotenv = require('dotenv');
 //Call to function of dotenv config
 dotenv.config({ path: '../../.env' });
-let cleAPI = process.env.REACT_APP_URL;
+let cleAPI = process.env.APP_URL;
 
-function SignUpForm() {
+function SignUp() {
     const { register, handleSubmit, formState: { errors } } = useForm({
         mode: 'onTouched'
     });
     const { isSubmitting } = errors;
 
     const onSubmit = data => {
-        axios.post(`${cleAPI}/api/auth/signup`,
-            { lastName: data.lastname, firstName: data.firstname, email: data.email, password: data.password })
-            .then(res => {
-                console.log(res.data);
-                const storageToken = {
-                    "userId": res.data.userId,
-                    "token": res.data.token
-                }
-                sessionStorage.setItem("storageToken", JSON.stringify(storageToken));
-                // Add data here
-                // and here
+        axios.post({
+        url:`${cleAPI}/api/auth/signup`,
+        method: 'POST',
+        headers: { 
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        },
+        data: JSON.stringify({
+            email: this.formData.email,
+            password: this.formData.password,
+            firstname: this.formData.firstname,
+            lastname: this.formData.lastname,
+            service: this.formData.service
+        })                    
+    })
+    .then(function(){
+        //to log user
+        axios({
+                url: `${cleAPI}/api/auth/login`,
+                method: 'POST',
+                headers: { 
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                },
+                data: JSON.stringify({
+                    email: this.formData.email,
+                    password: this.formData.password
+                })                    
             })
-            .catch(err => { 'Ceci est une erreur' });
-    }
-
+            .then(function(res){
+                sessionStorage.setItem('authUser', JSON.stringify(res.data));
+                document.location.href = './';
+            })
+            .catch(function(error){
+                console.log(error);
+            });
+        })}
     console.log(errors);
 
     return (
@@ -78,4 +100,5 @@ function SignUpForm() {
 }
 
 
-export default SignUpForm;
+
+export default SignUp;

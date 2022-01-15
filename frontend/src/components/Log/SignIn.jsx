@@ -4,9 +4,9 @@ import axios from 'axios';
 const dotenv = require('dotenv');
 //Call to function of dotenv config
 dotenv.config({ path: '../../.env' });
-let cleAPI = process.env.REACT_APP_URL;
+let cleAPI = process.env.APP_URL;
 
-const SignInForm = () => {
+const SignIn = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
@@ -61,4 +61,4 @@ const SignInForm = () => {
     );
 };
 
-export default SignInForm;
+export default SignIn;
