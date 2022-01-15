@@ -1,4 +1,47 @@
 .home {
     display: flex;
+    width: 100%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     overflow: hidden;
+    &_container {
+        ul {
+            padding: 0 0 15px 0;
+            display: flex;
+            justify-content: space-around;
+        
+            li {
+              background: $colorPinkVerySweet;
+              font-size: 1.1em;
+              width: 100%;
+              color: black;
+              padding: 20px 0;
+              cursor: pointer;
+              transition: 0.3s;
+              
+        
+              &:hover {
+                background: $colorPink;
+                box-shadow: inset 5px 5px 6px rgba(0, 22, 44, 0.5);
+                font-weight: bold;
+                color: white;
+              }
+            }
+        }
+    }
 }
+#login{
+    border-radius:0 50px 0 0;
+  }
+#register{
+    border-radius:50px 0 0 0;
+  }
+  .error {
+    background-color: $colorPinkVerySweet;
+    width: 300px;
+    color:rgb(241, 15, 15);
+    white-space: normal;
+    margin-top:5px;
+    font-weight: bold;
+  }

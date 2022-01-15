@@ -50,7 +50,7 @@ const SignInForm = () => {
             <div className='error'></div>
             <br />
 
-            <label htmlFor='password' className='logForm_label'>Mot de passe</label>
+            <label htmlFor='password' className='form_label'>Mot de passe</label>
             <br />
             <input type='password' name='password' id='password' onChange={(e) => setPassword(e.target.value)} value={password}/>
             <div className='error'></div>
