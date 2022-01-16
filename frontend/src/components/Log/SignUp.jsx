@@ -6,50 +6,27 @@ const dotenv = require('dotenv');
 dotenv.config({ path: '../../.env' });
 let cleAPI = process.env.APP_URL;
 
-function SignUp() {
+function SignUpForm() {
     const { register, handleSubmit, formState: { errors } } = useForm({
         mode: 'onTouched'
     });
     const { isSubmitting } = errors;
 
     const onSubmit = data => {
-        axios.post({
-        url:`${cleAPI}/api/auth/signup`,
-        method: 'POST',
-        headers: { 
-            'Accept': 'application/json',
-            'Content-Type': 'application/json'
-        },
-        data: JSON.stringify({
-            email: this.formData.email,
-            password: this.formData.password,
-            firstname: this.formData.firstname,
-            lastname: this.formData.lastname,
-            service: this.formData.service
-        })                    
-    })
-    .then(function(){
-        //to log user
-        axios({
-                url: `${cleAPI}/api/auth/login`,
-                method: 'POST',
-                headers: { 
-                    'Accept': 'application/json',
-                    'Content-Type': 'application/json'
-                },
-                data: JSON.stringify({
-                    email: this.formData.email,
-                    password: this.formData.password
-                })                    
+        axios.post(`${cleAPI}/api/auth/signup`,
+            { lastName: data.lastName, firstName: data.firstName, email: data.email, password: data.password })
+            .then(res => {
+                console.log(res.data);
+                const storageToken = {
+                    "userId": res.data.userId,
+                    "token": res.data.token
+                }
+                sessionStorage.setItem("storageToken", JSON.stringify(storageToken));
+                // Add data here
+                // and here
             })
-            .then(function(res){
-                sessionStorage.setItem('authUser', JSON.stringify(res.data));
-                document.location.href = './';
-            })
-            .catch(function(error){
-                console.log(error);
-            });
-        })}
+            .catch(err => { 'Ceci est une erreur' });
+    }
     console.log(errors);
 
     return (
@@ -101,4 +78,4 @@ function SignUp() {
 
 
 
-export default SignUp;
+export default SignUpForm;
